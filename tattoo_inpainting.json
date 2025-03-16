@@ -33,7 +33,7 @@
         {"name": "VAE", "type": "VAE", "links": [5]}
       ],
       "properties": {},
-      "widgets_values": ["v1-5-pruned.safetensors"]
+      "widgets_values": ["sd_xl_base_1.0.safetensors"]
     },
     {
       "id": 3,
@@ -107,10 +107,10 @@
       "properties": {},
       "widgets_values": [
         123456,                    
-        "euler_ancestral",  
+        "euler",  
         30,                        
         7.5,                       
-        "inpaint_only"                  
+        1.0                  
       ]
     },
     {

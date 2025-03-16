@@ -9,38 +9,29 @@
 DEFAULT_WORKFLOW="https://raw.githubusercontent.com/cotyledonlab/comfy-backend/refs/heads/main/tattoo_inpainting.json"
 
 APT_PACKAGES=(
-    #"package-1"
-    #"package-2"
+    # No additional packages needed
 )
 
 PIP_PACKAGES=(
-    #"package-1"
-    #"package-2"
+    # No additional packages needed
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/131004?type=Model&format=SafeTensor&size=pruned&fp=fp16"  # Dreamshaper v8 Inpainting -> saves as dreamshaper_v8_inpainting.safetensors
-    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.safetensors"  # Stable Diffusion v1.5 Pruned
-    "https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/512-inpainting-ema.safetensors"  # SD 2.0 Inpainting
+    "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"  # SDXL base model for inpainting
 )
 
 NODES=(
-    "https://github.com/rgthree/rgthree-comfy"           # For Image Comparer node
-    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"  # For ConstrainImage
-    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"  # For Image Overlay
-    "https://github.com/snus-kin/ComfyUI-image-size"     # For Image Size to Number
-    "https://github.com/TheBarret/ComfyUI-Mask-Ops"      # For LayerMask operations
-    "https://github.com/hiroshiyui/ComfyUI-Saveasbox"    # For better file saving options
     "https://github.com/BlenderNeko/ComfyUI_Inpaint_Nodes"  # For enhanced inpainting capabilities
-)
-LORA_MODELS=(
-    "https://civitai.com/api/download/models/16576"  # add_detail LoRA
+    "https://github.com/ltdrdata/ComfyUI-Manager"  # To manage additional nodes if needed
 )
 
+# Empty arrays for unused model types
+LORA_MODELS=()
 UNET_MODELS=()
 VAE_MODELS=()
 ESRGAN_MODELS=()
 CONTROLNET_MODELS=()
+
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
