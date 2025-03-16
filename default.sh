@@ -6,7 +6,7 @@
 
 # Packages are installed after nodes so we can fix them...
 
-#DEFAULT_WORKFLOW="https://..."
+DEFAULT_WORKFLOW="https://raw.githubusercontent.com/cotyledonlab/comfy-backend/refs/heads/main/tattoo_inpainting.json"
 
 APT_PACKAGES=(
     #"package-1"
@@ -21,13 +21,14 @@ PIP_PACKAGES=(
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/rgthree/rgthree-comfy"
 )
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
+    "https://civitai.com/api/download/models/128713"
 )
 
 UNET_MODELS=(
@@ -35,7 +36,7 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
-    #"https://civitai.com/api/download/models/16576"
+    "https://civitai.com/api/download/models/16576"  # Uncomment this line
 )
 
 VAE_MODELS=(
