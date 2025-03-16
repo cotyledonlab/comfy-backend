@@ -1,167 +1,483 @@
 {
-  "last_node_id": 12,
-  "last_link_id": 18,
+  "last_node_id": 13,
+  "last_link_id": 19,
   "nodes": [
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        400,
+        600
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "realistic tattoo, highly detailed, sharp focus"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncode",
+      "pos": [
+        400,
+        800
+      ],
+      "size": [
+        210,
+        100
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, low quality, worst quality, deformed"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "VAEEncode",
+      "pos": [
+        400,
+        100
+      ],
+      "size": [
+        200,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "SetLatentNoiseMask",
+      "pos": [
+        600,
+        200
+      ],
+      "size": [
+        200,
+        100
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 9
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetLatentNoiseMask"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "SaveImage",
+      "pos": [
+        1300,
+        300
+      ],
+      "size": [
+        210,
+        270
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "tattoo_result"
+      ]
+    },
     {
       "id": 1,
       "type": "LoadImage",
-      "pos": [100, 100],
-      "size": [400, 400],
+      "pos": [
+        100,
+        100
+      ],
+      "size": [
+        400,
+        400
+      ],
       "flags": {},
       "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
-        {"name": "IMAGE", "type": "IMAGE", "links": [1]},
-        {"name": "MASK", "type": "MASK", "links": [2]}
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            2
+          ]
+        }
       ],
-      "properties": {},
-      "widgets_values": ["input_image.png", "image"]
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-558558.png [input]",
+        "image"
+      ]
     },
     {
       "id": 2,
       "type": "CheckpointLoaderSimple",
-      "pos": [100, 600],
-      "size": [200, 100],
+      "pos": [
+        100,
+        600
+      ],
+      "size": [
+        210,
+        100
+      ],
       "flags": {},
       "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
-        {"name": "MODEL", "type": "MODEL", "links": [3]},
-        {"name": "CLIP", "type": "CLIP", "links": [4, 7]},
-        {"name": "VAE", "type": "VAE", "links": [5]}
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            4,
+            7
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5
+          ]
+        }
       ],
-      "properties": {},
-      "widgets_values": ["sd_xl_base_1.0.safetensors"]
-    },
-    {
-      "id": 3,
-      "type": "CLIPTextEncode",
-      "pos": [400, 600],
-      "size": [200, 100],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {"name": "clip", "type": "CLIP", "link": 4}
-      ],
-      "outputs": [
-        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [6]}
-      ],
-      "properties": {},
-      "widgets_values": ["realistic tattoo, highly detailed, sharp focus"]
-    },
-    {
-      "id": 11,
-      "type": "CLIPTextEncode",
-      "pos": [400, 800],
-      "size": [200, 100],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {"name": "clip", "type": "CLIP", "link": 7}
-      ],
-      "outputs": [
-        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [8]}
-      ],
-      "properties": {},
-      "widgets_values": ["blurry, low quality, worst quality, deformed"]
-    },
-    {
-      "id": 12,
-      "type": "VAEEncode",
-      "pos": [400, 100],
-      "size": [200, 100],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {"name": "pixels", "type": "IMAGE", "link": 1},
-        {"name": "vae", "type": "VAE", "link": 5}
-      ],
-      "outputs": [
-        {"name": "LATENT", "type": "LATENT", "links": [9]}
-      ],
-      "properties": {}
-    },
-    {
-      "id": 4,
-      "type": "KSampler",
-      "pos": [700, 300],
-      "size": [200, 400],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {"name": "model", "type": "MODEL", "link": 3},
-        {"name": "positive", "type": "CONDITIONING", "link": 6},
-        {"name": "negative", "type": "CONDITIONING", "link": 8},
-        {"name": "latent_image", "type": "LATENT", "link": 9},
-        {"name": "mask", "type": "MASK", "link": 2}
-      ],
-      "outputs": [
-        {"name": "LATENT", "type": "LATENT", "links": [10]}
-      ],
-      "properties": {},
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
       "widgets_values": [
-        123456,                    
-        "euler",  
-        30,                        
-        7.5,                       
-        1.0                  
+        "SDXL/sd_xl_base_1.0.safetensors"
       ]
     },
     {
       "id": 5,
       "type": "VAEDecode",
-      "pos": [1000, 300],
-      "size": [200, 100],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {"name": "samples", "type": "LATENT", "link": 10},
-        {"name": "vae", "type": "VAE", "link": 5}
+      "pos": [
+        1079.313232421875,
+        300
       ],
-      "outputs": [
-        {"name": "IMAGE", "type": "IMAGE", "links": [11]}
+      "size": [
+        200,
+        100
       ],
-      "properties": {}
-    },
-    {
-      "id": 6,
-      "type": "SaveImage",
-      "pos": [1300, 300],
-      "size": [200, 100],
       "flags": {},
       "order": 7,
       "mode": 0,
       "inputs": [
-        {"name": "images", "type": "IMAGE", "link": 11}
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 10
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
       ],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": ["tattoo_result"]
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "KSampler",
+      "pos": [
+        843.4820556640625,
+        392.23858642578125
+      ],
+      "size": [
+        210,
+        400
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 8
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        123456,
+        "euler",
+        30,
+        7.5,
+        "euler_ancestral",
+        "normal",
+        1
+      ]
     }
   ],
   "links": [
-    [1, 1, 0, 12, 0, "IMAGE"],
-    [2, 1, 1, 4, 4, "MASK"],
-    [3, 2, 0, 4, 0, "MODEL"],
-    [4, 2, 1, 3, 0, "CLIP"],
-    [5, 2, 2, 5, 1, "VAE"],
-    [5, 2, 2, 12, 1, "VAE"],
-    [6, 3, 0, 4, 1, "CONDITIONING"],
-    [7, 2, 1, 11, 0, "CLIP"],
-    [8, 11, 0, 4, 2, "CONDITIONING"],
-    [9, 12, 0, 4, 3, "LATENT"],
-    [10, 4, 0, 5, 0, "LATENT"],
-    [11, 5, 0, 6, 0, "IMAGE"]
+    [
+      1,
+      1,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      1,
+      1,
+      13,
+      1,
+      "MASK"
+    ],
+    [
+      3,
+      2,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      2,
+      1,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      2,
+      2,
+      12,
+      1,
+      "VAE"
+    ],
+    [
+      6,
+      3,
+      0,
+      4,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      2,
+      1,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      8,
+      11,
+      0,
+      4,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      9,
+      12,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      10,
+      4,
+      0,
+      5,
+      0,
+      "LATENT"
+    ],
+    [
+      11,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      13,
+      0,
+      4,
+      3,
+      "LATENT"
+    ]
   ],
-  "version": 0.4,
-  "extra": {},
+  "groups": [],
   "config": {},
-  "groups": []
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650711,
+      "offset": {
+        "0": 175.98777770996094,
+        "1": 12.204048156738281
+      }
+    },
+    "node_versions": {
+      "comfy-core": "0.3.13"
+    }
+  },
+  "version": 0.4
 }
