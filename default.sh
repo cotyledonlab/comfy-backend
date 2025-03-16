@@ -23,9 +23,12 @@ CHECKPOINT_MODELS=(
 )
 
 NODES=(
-    "https://github.com/rgthree/rgthree-comfy"  # For Image Comparer node
+    "https://github.com/rgthree/rgthree-comfy"           # For Image Comparer node
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"  # For ConstrainImage
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"  # For Image Overlay
+    "https://github.com/snus-kin/ComfyUI-image-size"     # For Image Size to Number
+    "https://github.com/TheBarret/ComfyUI-Mask-Ops"      # For LayerMask operations
 )
-
 LORA_MODELS=(
     "https://civitai.com/api/download/models/16576"  # add_detail LoRA
 )
