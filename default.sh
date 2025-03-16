@@ -19,7 +19,7 @@ PIP_PACKAGES=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/128713"  # Dreamshaper v8 Inpainting
+    "https://civitai.com/api/download/models/131004?type=Model&format=SafeTensor&size=pruned&fp=fp16"  # Dreamshaper v8 Inpainting
 )
 
 NODES=(
