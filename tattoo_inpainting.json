@@ -88,11 +88,11 @@
       ],
       "properties": {},
       "widgets_values": [
-        123456,                    // seed
-        "sample_euler_ancestral",  // sampler name
-        30,                        // steps  
-        7.5,                       // cfg
-        "inpaint"                  // mode
+        123456,                    
+        "sample_euler_ancestral",  
+        30,                        
+        7.5,                       
+        "inpaint"                  
       ]
     },
     {
