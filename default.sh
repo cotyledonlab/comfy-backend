@@ -20,6 +20,8 @@ PIP_PACKAGES=(
 
 CHECKPOINT_MODELS=(
     "https://civitai.com/api/download/models/131004?type=Model&format=SafeTensor&size=pruned&fp=fp16"  # Dreamshaper v8 Inpainting -> saves as dreamshaper_v8_inpainting.safetensors
+    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.safetensors"  # Stable Diffusion v1.5 Pruned
+    "https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/512-inpainting-ema.safetensors"  # SD 2.0 Inpainting
 )
 
 NODES=(
@@ -28,6 +30,8 @@ NODES=(
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"  # For Image Overlay
     "https://github.com/snus-kin/ComfyUI-image-size"     # For Image Size to Number
     "https://github.com/TheBarret/ComfyUI-Mask-Ops"      # For LayerMask operations
+    "https://github.com/hiroshiyui/ComfyUI-Saveasbox"    # For better file saving options
+    "https://github.com/BlenderNeko/ComfyUI_Inpaint_Nodes"  # For enhanced inpainting capabilities
 )
 LORA_MODELS=(
     "https://civitai.com/api/download/models/16576"  # add_detail LoRA
