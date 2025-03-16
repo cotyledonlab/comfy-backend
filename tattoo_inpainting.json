@@ -33,7 +33,7 @@
         {"name": "VAE", "type": "VAE", "links": [5]}
       ],
       "properties": {},
-      "widgets_values": ["dreamshaper_8Inpainting.safetensors"]
+      "widgets_values": ["dreamshaper_v8_inpainting.safetensors"]
     },
     {
       "id": 3,
@@ -110,7 +110,7 @@
         "sample_euler_ancestral",  
         30,                        
         7.5,                       
-        "inpaint"                  
+        "inpaint_only"                  
       ]
     },
     {
