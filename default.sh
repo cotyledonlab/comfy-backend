@@ -17,18 +17,23 @@ PIP_PACKAGES=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"  # SDXL base model for inpainting
+"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors" # SDXL base model for inpainting
+"https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE/resolve/main/Realistic_Vision_V5.1.safetensors" # Better for detailed line art
 )
 
 NODES=(
-    "https://github.com/BlenderNeko/ComfyUI_Inpaint_Nodes"  # For enhanced inpainting capabilities
-    "https://github.com/ltdrdata/ComfyUI-Manager"  # To manage additional nodes if needed
+"https://github.com/BlenderNeko/ComfyUI_Inpaint_Nodes" # For enhanced inpainting capabilities
+"https://github.com/ltdrdata/ComfyUI-Manager" # To manage additional nodes if needed
+"https://github.com/ltdrdata/ComfyUI-Impact-Pack" # For LinArtPreprocessor
+"https://github.com/city96/ComfyUI_ExtraModels" # For PromptCreator
 )
 
 # Empty arrays for unused model types
 LORA_MODELS=()
 UNET_MODELS=()
-VAE_MODELS=()
+VAE_MODELS=(
+"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
+)
 ESRGAN_MODELS=()
 CONTROLNET_MODELS=()
 
